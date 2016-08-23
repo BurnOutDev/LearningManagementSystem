@@ -8,6 +8,6 @@ namespace LearningManagementSystem.Domain
 {
     public class Teacher : Person
     {
-
+        public ICollection<Course> Courses { get; set; }
     }
 }

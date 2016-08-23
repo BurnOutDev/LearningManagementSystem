@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace LearningManagementSystem.Domain
 {
-    public class Course : BaseModel
+    public class Role
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public ICollection<Teacher> Teachers { get; set; }
-        public ICollection<Student> Students { get; set; }
+        public ICollection<Person> Persons { get; set; }
     }
 }
