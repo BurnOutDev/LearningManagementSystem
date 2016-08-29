@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace LearningManagementSystem.Domain
 {
-    public class Course : BaseModel
+    public class UploadedFile : BaseModel
     {
         [Key]
-        public long CourseID { get; set; }
-        public string Name { get; set; }
+        public long FileID { get; set; }
+        public string FileName { get; set; }
         public string Description { get; set; }
-        public ICollection<Teacher> Teachers { get; set; }
-        public ICollection<Student> Students { get; set; }
+        public string Extension { get; set; }
+        public byte[] BinaryData { get; set; }
+
+        public virtual Person Owner { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace LearningManagementSystem.GUI.UWP.Core
     {
         public string Label { get; set; }
         public Symbol Symbol { get; set; }
-        public char SymbolAsChar => (char) Symbol;
+        public char SymbolAsChar => (char)Symbol;
         public object Arguments { get; set; }
         public Type DestinationPage { get; set; }
     }

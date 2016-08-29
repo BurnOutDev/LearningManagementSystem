@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LearningManagementSystem.Domain
+namespace LearningManagementSystem.Data.Domain
 {
     public class BaseModel
     {

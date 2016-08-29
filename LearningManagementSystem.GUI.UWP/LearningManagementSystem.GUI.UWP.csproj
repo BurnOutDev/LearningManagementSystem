@@ -11,8 +11,8 @@
     <AssemblyName>LearningManagementSystem.GUI.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
@@ -121,6 +121,9 @@
     <None Include="SplitViewMenuUWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\emilia.jpg" />
+    <Content Include="Assets\gas.jpg" />
+    <Content Include="Assets\margot.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -153,10 +156,21 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LearningManagementSystem.Data.Core\LearningManagementSystem.Data.Core.csproj">
+      <Project>{e261694d-5b94-4be4-ae59-ea0646fbd5e4}</Project>
+      <Name>LearningManagementSystem.Data.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearningManagementSystem.Data.Domain\LearningManagementSystem.Data.Domain.csproj">
+      <Project>{53c3e793-c298-4bb6-86d4-888bf17cfba2}</Project>
+      <Name>LearningManagementSystem.Data.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LearningManagementSystem.GUI.UWP.Core\LearningManagementSystem.GUI.UWP.Core.csproj">
-      <Project>{fe57e901-bc4d-4c0b-a386-c253e0fc245c}</Project>
+      <Project>{d95efb35-5253-4514-ac54-ecc7e2530597}</Project>
       <Name>LearningManagementSystem.GUI.UWP.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

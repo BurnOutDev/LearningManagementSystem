@@ -10,7 +10,7 @@ namespace LearningManagementSystem.GUI.UWP.Views
         public MainPageViewModel()
         {
             MenuItems = new ObservableCollection<SimpleNavMenuItem>();
-            InitialPage = typeof (DedlinesPage);
+            InitialPage = typeof (DashboardPage);
         }
 
         public ObservableCollection<SimpleNavMenuItem> MenuItems { get; }

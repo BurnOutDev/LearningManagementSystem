@@ -32,7 +32,7 @@ namespace LearningManagementSystem.GUI.UWP.Core
 
             if (parent == null)
                 return;
-            _splitViewHost = (SplitView) parent;
+            _splitViewHost = (SplitView)parent;
 
             _splitViewHost.RegisterPropertyChangedCallback(SplitView.IsPaneOpenProperty,
                 (_, __) => { OnPaneToggled(); });
@@ -58,7 +58,7 @@ namespace LearningManagementSystem.GUI.UWP.Core
                 return;
             foreach (
                 var cont in
-                    Items.Select(i => (ListViewItem) ContainerFromItem(i)).Where(cont => cont != null && cont != item))
+                    Items.Select(i => (ListViewItem)ContainerFromItem(i)).Where(cont => cont != null && cont != item))
             {
                 cont.IsSelected = false;
             }

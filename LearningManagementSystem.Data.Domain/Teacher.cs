@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LearningManagementSystem.Domain
+namespace LearningManagementSystem.Data.Domain
 {
     public class Teacher : Person
     {

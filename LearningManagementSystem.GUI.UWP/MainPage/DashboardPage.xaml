@@ -7,6 +7,39 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Dashboard" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="32" />
+
+        <GridView Name="gridview" Margin="10" IsSwipeEnabled="True">
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VariableSizedWrapGrid Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Background="{StaticResource AppBarBackgroundThemeBrush}"
+                                Orientation="Vertical"
+                                Height="250"
+                                Width="150">
+                        <Image Grid.Row="0"
+                               Stretch="UniformToFill"
+                               Source="{Binding ImageUri}"
+                               Height="200"
+                               Width="150"
+                               />
+                        <TextBlock Text="{Binding FullName}"
+                                   Grid.Row="1"
+                                   FontSize="18"
+                                   Margin="10,0,0,0"
+                                   />
+                        <TextBlock Text="{Binding StudentID}"
+                                   Grid.Row="1"
+                                   FontSize="16"
+                                   Margin="10,0,0,0"
+                                   />
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+
     </Grid>
 </Page>

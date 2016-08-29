@@ -11,24 +11,24 @@ namespace LearningManagementSystem.GUI.UWP.Core
     public sealed class SplitViewMenu : Control
     {
         internal static readonly DependencyProperty MenuItemDataTemplateSelectorProperty =
-            DependencyProperty.Register("MenuItemDataTemplateSelector", typeof (DataTemplateSelector),
-                typeof (SplitViewMenu), new PropertyMetadata(null));
+            DependencyProperty.Register("MenuItemDataTemplateSelector", typeof(DataTemplateSelector),
+                typeof(SplitViewMenu), new PropertyMetadata(null));
 
         internal static readonly DependencyProperty NavMenuItemTemplateProperty =
-            DependencyProperty.Register("NavMenuItemTemplate", typeof (DataTemplate), typeof (SplitViewMenu),
+            DependencyProperty.Register("NavMenuItemTemplate", typeof(DataTemplate), typeof(SplitViewMenu),
                 new PropertyMetadata(null));
 
         internal static readonly DependencyProperty NavMenuItemContainerStyleProperty =
-            DependencyProperty.Register("NavMenuItemContainerStyle", typeof (Style), typeof (SplitViewMenu),
+            DependencyProperty.Register("NavMenuItemContainerStyle", typeof(Style), typeof(SplitViewMenu),
                 new PropertyMetadata(null));
 
         internal static readonly DependencyProperty InitialPageProperty =
-            DependencyProperty.Register("InitialPage", typeof (Type), typeof (SplitViewMenu),
+            DependencyProperty.Register("InitialPage", typeof(Type), typeof(SplitViewMenu),
                 new PropertyMetadata(null));
 
         internal static readonly DependencyProperty NavigationItemsProperty =
-            DependencyProperty.Register("NavigationItems", typeof (IEnumerable<INavigationMenuItem>),
-                typeof (SplitViewMenu),
+            DependencyProperty.Register("NavigationItems", typeof(IEnumerable<INavigationMenuItem>),
+                typeof(SplitViewMenu),
                 new PropertyMetadata(Enumerable.Empty<INavigationMenuItem>(), OnNavigationItemsPropertyChanged));
 
         private Button _backButton;
@@ -37,37 +37,37 @@ namespace LearningManagementSystem.GUI.UWP.Core
 
         public SplitViewMenu()
         {
-            DefaultStyleKey = typeof (SplitViewMenu);
+            DefaultStyleKey = typeof(SplitViewMenu);
             Loaded += OnSplitViewMenuLoaded;
         }
 
         public DataTemplateSelector MenuItemDataTemplateSelector
         {
-            get { return (DataTemplateSelector) GetValue(MenuItemDataTemplateSelectorProperty); }
+            get { return (DataTemplateSelector)GetValue(MenuItemDataTemplateSelectorProperty); }
             set { SetValue(MenuItemDataTemplateSelectorProperty, value); }
         }
 
         public DataTemplate NavMenuItemTemplate
         {
-            get { return (DataTemplate) GetValue(NavMenuItemTemplateProperty); }
+            get { return (DataTemplate)GetValue(NavMenuItemTemplateProperty); }
             set { SetValue(NavMenuItemTemplateProperty, value); }
         }
 
         public Style NavMenuItemContainerStyle
         {
-            get { return (Style) GetValue(NavMenuItemContainerStyleProperty); }
+            get { return (Style)GetValue(NavMenuItemContainerStyleProperty); }
             set { SetValue(NavMenuItemContainerStyleProperty, value); }
         }
 
         public Type InitialPage
         {
-            get { return (Type) GetValue(InitialPageProperty); }
+            get { return (Type)GetValue(InitialPageProperty); }
             set { SetValue(InitialPageProperty, value); }
         }
 
         public IEnumerable<INavigationMenuItem> NavigationItems
         {
-            get { return (IEnumerable<INavigationMenuItem>) GetValue(NavigationItemsProperty); }
+            get { return (IEnumerable<INavigationMenuItem>)GetValue(NavigationItemsProperty); }
             set { SetValue(NavigationItemsProperty, value); }
         }
 
@@ -80,7 +80,7 @@ namespace LearningManagementSystem.GUI.UWP.Core
 
         private static void OnNavigationItemsPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var menu = (SplitViewMenu) d;
+            var menu = (SplitViewMenu)d;
             if (menu._navMenuListView != null)
                 menu._navMenuListView.ItemsSource = e.NewValue;
         }
@@ -129,7 +129,7 @@ namespace LearningManagementSystem.GUI.UWP.Core
         {
             if (!args.InRecycleQueue && args.Item is INavigationMenuItem)
             {
-                args.ItemContainer.SetValue(AutomationProperties.NameProperty, ((INavigationMenuItem) args.Item).Label);
+                args.ItemContainer.SetValue(AutomationProperties.NameProperty, ((INavigationMenuItem)args.Item).Label);
             }
             else
             {
@@ -149,8 +149,8 @@ namespace LearningManagementSystem.GUI.UWP.Core
 
         private void PageLoaded(object sender, RoutedEventArgs e)
         {
-            ((Page) sender).Focus(FocusState.Programmatic);
-            ((Page) sender).Loaded -= PageLoaded;
+            ((Page)sender).Focus(FocusState.Programmatic);
+            ((Page)sender).Loaded -= PageLoaded;
         }
 
         private void OnNavigatingToPage(object sender, NavigatingCancelEventArgs e)
@@ -168,7 +168,7 @@ namespace LearningManagementSystem.GUI.UWP.Core
                 }
             }
 
-            var container = (ListViewItem) _navMenuListView.ContainerFromItem(item);
+            var container = (ListViewItem)_navMenuListView.ContainerFromItem(item);
             if (container != null)
                 container.IsTabStop = false;
             _navMenuListView.SetSelectedItem(container);
@@ -178,7 +178,7 @@ namespace LearningManagementSystem.GUI.UWP.Core
 
         private void OnNavMenuItemInvoked(object sender, ListViewItem e)
         {
-            var item = (INavigationMenuItem) ((NavMenuListView) sender).ItemFromContainer(e);
+            var item = (INavigationMenuItem)((NavMenuListView)sender).ItemFromContainer(e);
 
             if (item?.DestinationPage != null &&
                 item.DestinationPage != _pageFrame.CurrentSourcePageType)
